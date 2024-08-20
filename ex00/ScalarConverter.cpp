@@ -53,8 +53,10 @@ std::string getInt(std::string &s){
 }
 
 std::string getFloat(std::string &s){
-	double d = std::strtof(s.c_str(), NULL);
 	std::string str;
+	if (s == "+inf" || s == "-inf" || s == "+inff" || s == "-inff")
+		return s;
+	double d = std::strtof(s.c_str(), NULL);
 	if (std::abs(d) > std::numeric_limits<float>::max())
 		str = "Impossible..";
 	else {
@@ -68,8 +70,10 @@ std::string getFloat(std::string &s){
 }
 
 std::string getDouble(std::string &s){
-	double d = std::strtod(s.c_str(), NULL);
 	std::string str;
+	if (s == "+inf" || s == "-inf" || s == "+inff" || s == "-inff")
+		return s;
+	double d = std::strtod(s.c_str(), NULL);
 	if (std::abs(d) > std::numeric_limits<double>::max())
 		str = "Impossible..";
 	else {
