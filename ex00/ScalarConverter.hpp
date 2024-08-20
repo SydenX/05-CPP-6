@@ -10,13 +10,10 @@ class ScalarConverter {
 	private:
 		ScalarConverter();
 		~ScalarConverter();
-	public:
 		ScalarConverter(ScalarConverter const &scalarconverter);
 		ScalarConverter& 	operator=(ScalarConverter const&);
+	public:
 		static void convert(std::string in);
-		static bool is_int(std::string);
-		static bool is_float(std::string s);
-		static bool is_numeric (std::string const & str);
 };
 
 #endif
