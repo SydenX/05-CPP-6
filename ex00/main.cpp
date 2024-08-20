@@ -6,7 +6,7 @@
 /*   By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:12:19 by jtollena          #+#    #+#             */
-/*   Updated: 2024/08/20 15:36:07 by jtollena         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:36:16 by jtollena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int main(){
 	ScalarConverter::convert("-123.456f");
 	ScalarConverter::convert("89");
 	ScalarConverter::convert("nan");
-	ScalarConverter::convert("+inf");
 	ScalarConverter::convert("-inf");
 	ScalarConverter::convert("+inff");
-	ScalarConverter::convert("-inff");
 }

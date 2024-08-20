@@ -25,7 +25,7 @@ ScalarConverter&	ScalarConverter::operator=(ScalarConverter const &scalarconvert
 std::string getChar(std::string &s){
 	std::string str;
 	double i = std::strtol(s.c_str(), NULL, 10);
-	if (s == "nan")
+	if (s == "nan" || s == "+inf" || s == "-inf" || s == "+inff" || s == "-inff")
 		str = "Impossible..";
 	else if (i < 32 || i > 126)
 		str = "Not displayable";
@@ -40,7 +40,7 @@ std::string getChar(std::string &s){
 std::string getInt(std::string &s){
 	std::string str;
 	double d = std::strtol(s.c_str(), NULL, 10);
-	if (s == "nan")
+	if (s == "nan" || s == "+inf" || s == "-inf" || s == "+inff" || s == "-inff")
 		str = "Impossible..";
 	else if (std::abs(d) > std::numeric_limits<int>::max())
 		str = "Impossible..";
@@ -87,8 +87,6 @@ std::string getDouble(std::string &s){
 }
 
 void ScalarConverter::convert(std::string in){
-	// double t = 1.8;
-	// std::cout << static_cast<int>(round(t)) << std::endl;
 	std::cout << "Char   is :" << getChar(in) << std::endl;
 	std::cout << "Int    is :" << getInt(in) << std::endl;
 	std::cout << "Float  is :" << getFloat(in) << std::endl;
