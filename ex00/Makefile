@@ -6,14 +6,14 @@
 #    By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 23:04:50 by lolemmen          #+#    #+#              #
-#    Updated: 2024/08/20 13:12:52 by jtollena         ###   ########.fr        #
+#    Updated: 2024/08/20 15:39:25 by jtollena         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .SILENT:
 .PHONY: NAME re all fclean clean
 
-NAME = bureaucrat
+NAME = convert
 
 # Compilation
 
