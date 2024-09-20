@@ -40,7 +40,7 @@ void	identify(Base &p){
 				std::cout << "C" << std::endl;
 			} catch(std::exception &e){
 				std::cout << "NOT FOUND" << std::endl;
-			}	
+			}
 		}	
 	}
 }
