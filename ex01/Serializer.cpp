@@ -21,9 +21,9 @@ Serializer&	Serializer::operator=(Serializer const &serializer){
 }
 
 uintptr_t Serializer::serialize(Data *ptr){
-	return (uintptr_t)(void *)ptr;
+	return reinterpret_cast<uintptr_t>((void *)ptr);
 }
 
 Data* Serializer::deserialize(uintptr_t raw){
-	return (Data *)raw;
+	return reinterpret_cast<Data *>(raw);
 }

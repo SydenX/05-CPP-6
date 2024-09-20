@@ -6,7 +6,7 @@
 /*   By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:12:19 by jtollena          #+#    #+#             */
-/*   Updated: 2024/08/21 15:17:16 by jtollena         ###   ########.fr       */
+/*   Updated: 2024/09/20 11:53:56 by jtollena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int main(){
     Base *i = generate();
     identify(i);
     identify(*i);
-
+    std::cout << std::endl;
     A *a = new A();
 	identify(a);
     identify(*a);
-    
+    std::cout << std::endl;
     B *b = new B();
 	identify(b);
     identify(*b);
-
+    std::cout << std::endl;
     C *c = new C();
 	identify(c);
     identify(*c);

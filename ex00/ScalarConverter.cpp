@@ -28,7 +28,7 @@ void printChar(double d){
 	std::cout << "char: ";
 	int i = static_cast<int>(std::round(d));
 	 if (i < 32 || i > 126)
-		std::cout << "Not displayable" << std::endl;
+		std::cout << "Non displayable" << std::endl;
 	else {
 		std::cout << '\'' << static_cast<char>(i) << '\'' << std::endl;
 	}
