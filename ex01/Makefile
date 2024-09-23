@@ -6,7 +6,7 @@
 #    By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 23:04:50 by lolemmen          #+#    #+#              #
-#    Updated: 2024/09/23 15:04:49 by jtollena         ###   ########.fr        #
+#    Updated: 2024/09/23 15:14:30 by jtollena         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CXXFLAGS = -std=c++98 -Wall -Werror -Wextra -Wno-shadow
 SOURCES := \
 	 Serializer.cpp \
 	 main.cpp
-	 
+
 # **************************************************************************** #
 
 # Special Chars
@@ -66,4 +66,3 @@ re : fclean all
 %.o: %.cpp Makefile
 	@echo "$(LOG_CLEAR)$(NAME)... $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"
 	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
-	
