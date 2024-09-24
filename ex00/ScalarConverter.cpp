@@ -69,28 +69,24 @@ void printDouble(double d){
 int checkStr(std::string &str){
 	if (str == "nan" || str == "nanf" || str == "+inf" || str == "-inf" || str == "+inff" || str == "-inff")
 		return -1;
-	if (str[0] < 32 || str[0] > 126)
+	if (str[0] < 32 || str[0] > 126 || str[0] == '.')
 		return 1;
-	if (str[0] == '.')
-		return 8;
 	int hasPoint = 0;
 	for (unsigned long i = 1; i < (unsigned long)str.length(); i++){
 		if (str[i - 1] < '0' || str[i - 1] > '9'){
 			if (str[i - 1] != '.' && str[i - 1] != '-')
-				return 2;
+				return 1;
 			else if (str[i] < '0' || str[i] > '9')
-				return 3;
+				return 1;
 		}
 		else if ((str[i] < '0' || str[i] > '9') && str[i] != 'f' && str[i] != '.')
-			return 4;
-		if (str[i] == '.' && (str[i - 1] < '0' || str[i - 1] > '9'))
-			return 5;
-		if (str[i] == '-')
-			return 6;
+			return 1;
+		if ((str[i] == '.' && (str[i - 1] < '0' || str[i - 1] > '9')) || str[i] == '-')
+			return 1;
 		if (str[i] == '.')
 			hasPoint++;
 		if (hasPoint > 1 || (str[i] == '.' && i == str.length() - 1))
-			return 7;
+			return 1;
 	}
 	return 0;
 }
