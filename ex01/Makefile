@@ -6,14 +6,14 @@
 #    By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 23:04:50 by lolemmen          #+#    #+#              #
-#    Updated: 2024/09/23 15:14:30 by jtollena         ###   ########.fr        #
+#    Updated: 2024/09/24 11:32:51 by jtollena         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .SILENT:
 .PHONY: NAME re all fclean clean
 
-NAME := bureaucrat
+NAME := convert
 
 # Compilation
 
@@ -24,7 +24,7 @@ CXXFLAGS = -std=c++98 -Wall -Werror -Wextra -Wno-shadow
 SOURCES := \
 	 Serializer.cpp \
 	 main.cpp
-
+	 
 # **************************************************************************** #
 
 # Special Chars
@@ -43,18 +43,22 @@ LOG_WHITE = \033[1;37m
 
 # **************************************************************************** #
 
-OBJECTS := $(patsubst %.cpp,%.o,$(SOURCES))
-DEPENDS := $(patsubst %.cpp,%.d,$(SOURCES))
+OBJDIR := objects
+OBJECTS := $(addprefix $(OBJDIR)/,$(SOURCES:.cpp=.o))
+DEPENDS := $(addprefix $(OBJDIR)/,$(SOURCES:.cpp=.d))
 
-all : $(NAME)
+all: $(OBJDIR) $(NAME)
 
-$(NAME) : $(OBJECTS)
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(NAME): $(OBJECTS)
 	echo "$(LOG_CLEAR)$(NAME)... $(LOG_CYAN)assembling... $(LOG_NOCOLOR)$(LOG_UP)"
 	$(CXX) $(CXXFLAGS) $^ -o $@
 	echo "$(LOG_CLEAR)$(NAME)... $(LOG_GREEN)compiled $(LOG_GREEN)✓$(LOG_NOCOLOR)"
 
 clean:
-	$(RM) $(OBJECTS) $(DEPENDS)
+	$(RM) $(OBJECTS) $(DEPENDS) $(OBJDIR)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -63,6 +67,7 @@ re : fclean all
 
 -include $(DEPENDS)
 
-%.o: %.cpp Makefile
+$(OBJDIR)/%.o: %.cpp Makefile
 	@echo "$(LOG_CLEAR)$(NAME)... $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"
 	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+	
